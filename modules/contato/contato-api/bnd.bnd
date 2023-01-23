@@ -1,0 +1,10 @@
+Bundle-Name: contato-api
+Bundle-SymbolicName: com.liferay.andre.contato.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.andre.contato.exception,\
+	com.liferay.andre.contato.model,\
+	com.liferay.andre.contato.service,\
+	com.liferay.andre.contato.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../contato-service/service.xml
