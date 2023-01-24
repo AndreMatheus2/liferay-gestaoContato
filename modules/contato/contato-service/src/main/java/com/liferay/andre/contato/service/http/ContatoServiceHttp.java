@@ -93,11 +93,174 @@ public class ContatoServiceHttp {
 		}
 	}
 
+	public static com.liferay.andre.contato.model.Contato updaContato(
+			HttpPrincipal httpPrincipal, long contatoId, String nome,
+			String telefone, String email, int idade)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				ContatoServiceUtil.class, "updaContato",
+				_updaContatoParameterTypes1);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, contatoId, nome, telefone, email, idade);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.liferay.andre.contato.model.Contato)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static java.util.List<com.liferay.andre.contato.model.Contato>
+		getContatoByGroupId(HttpPrincipal httpPrincipal, long groupId) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				ContatoServiceUtil.class, "getContatoByGroupId",
+				_getContatoByGroupIdParameterTypes2);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey, groupId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List<com.liferay.andre.contato.model.Contato>)
+				returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static com.liferay.andre.contato.model.Contato getContato(
+			HttpPrincipal httpPrincipal, long contatoId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				ContatoServiceUtil.class, "getContato",
+				_getContatoParameterTypes3);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, contatoId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.liferay.andre.contato.model.Contato)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static com.liferay.andre.contato.model.Contato deleteContato(
+			HttpPrincipal httpPrincipal, long contatoId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				ContatoServiceUtil.class, "deleteContato",
+				_deleteContatoParameterTypes4);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, contatoId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.liferay.andre.contato.model.Contato)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(ContatoServiceHttp.class);
 
 	private static final Class<?>[] _addContatoParameterTypes0 = new Class[] {
 		long.class, String.class, String.class, String.class, int.class,
 		com.liferay.portal.kernel.service.ServiceContext.class
 	};
+	private static final Class<?>[] _updaContatoParameterTypes1 = new Class[] {
+		long.class, String.class, String.class, String.class, int.class
+	};
+	private static final Class<?>[] _getContatoByGroupIdParameterTypes2 =
+		new Class[] {long.class};
+	private static final Class<?>[] _getContatoParameterTypes3 = new Class[] {
+		long.class
+	};
+	private static final Class<?>[] _deleteContatoParameterTypes4 =
+		new Class[] {long.class};
 
 }

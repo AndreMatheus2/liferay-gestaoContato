@@ -44,6 +44,27 @@ public class ContatoServiceWrapper
 			groupId, nome, telefone, email, idade, serviceContext);
 	}
 
+	@Override
+	public com.liferay.andre.contato.model.Contato deleteContato(long contatoId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _contatoService.deleteContato(contatoId);
+	}
+
+	@Override
+	public com.liferay.andre.contato.model.Contato getContato(long contatoId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _contatoService.getContato(contatoId);
+	}
+
+	@Override
+	public java.util.List<com.liferay.andre.contato.model.Contato>
+		getContatoByGroupId(long groupId) {
+
+		return _contatoService.getContatoByGroupId(groupId);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -52,6 +73,16 @@ public class ContatoServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _contatoService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.liferay.andre.contato.model.Contato updaContato(
+			long contatoId, String nome, String telefone, String email,
+			int idade)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _contatoService.updaContato(
+			contatoId, nome, telefone, email, idade);
 	}
 
 	@Override

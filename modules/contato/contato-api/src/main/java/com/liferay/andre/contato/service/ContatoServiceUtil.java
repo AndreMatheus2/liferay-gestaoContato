@@ -17,6 +17,8 @@ package com.liferay.andre.contato.service;
 import com.liferay.andre.contato.model.Contato;
 import com.liferay.portal.kernel.exception.PortalException;
 
+import java.util.List;
+
 /**
  * Provides the remote service utility for Contato. This utility wraps
  * <code>com.liferay.andre.contato.service.impl.ContatoServiceImpl</code> and is an
@@ -45,6 +47,18 @@ public class ContatoServiceUtil {
 			groupId, nome, telefone, email, idade, serviceContext);
 	}
 
+	public static Contato deleteContato(long contatoId) throws PortalException {
+		return getService().deleteContato(contatoId);
+	}
+
+	public static Contato getContato(long contatoId) throws PortalException {
+		return getService().getContato(contatoId);
+	}
+
+	public static List<Contato> getContatoByGroupId(long groupId) {
+		return getService().getContatoByGroupId(groupId);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -52,6 +66,15 @@ public class ContatoServiceUtil {
 	 */
 	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	public static Contato updaContato(
+			long contatoId, String nome, String telefone, String email,
+			int idade)
+		throws PortalException {
+
+		return getService().updaContato(
+			contatoId, nome, telefone, email, idade);
 	}
 
 	public static ContatoService getService() {

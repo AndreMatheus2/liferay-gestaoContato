@@ -22,6 +22,8 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.service.ServiceContext;
 import org.osgi.service.component.annotations.Component;
 
+import java.util.List;
+
 /**
  * @author Brian Wing Shun Chan
  */
@@ -45,4 +47,15 @@ public class ContatoServiceImpl extends ContatoServiceBaseImpl {
 		return contatoLocalService.updaContato(contatoId, nome, telefone, email, idade);
 	}
 
+	public List<Contato> getContatoByGroupId(long groupId){
+		return contatoPersistence.findBygroupId(groupId);
+	}
+
+	public Contato getContato(long contatoId)throws PortalException{
+		return contatoLocalService.getContato(contatoId);
+	}
+
+	public Contato deleteContato(long contatoId)throws PortalException{
+		return contatoLocalService.deleteContato(contatoId);
+	}
 }

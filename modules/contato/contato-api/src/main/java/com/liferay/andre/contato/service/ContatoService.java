@@ -22,7 +22,10 @@ import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
+
+import java.util.List;
 
 import org.osgi.annotation.versioning.ProviderType;
 
@@ -54,11 +57,24 @@ public interface ContatoService extends BaseService {
 			ServiceContext serviceContext)
 		throws PortalException;
 
+	public Contato deleteContato(long contatoId) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public Contato getContato(long contatoId) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Contato> getContatoByGroupId(long groupId);
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
 	public String getOSGiServiceIdentifier();
+
+	public Contato updaContato(
+			long contatoId, String nome, String telefone, String email,
+			int idade)
+		throws PortalException;
 
 }
