@@ -29,6 +29,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -76,6 +77,11 @@ public interface ContatoLocalService
 	 */
 	@Indexable(type = IndexableType.REINDEX)
 	public Contato addContato(Contato contato);
+
+	public Contato addContato(
+			long groupId, String nome, String telefone, String email, int idade,
+			ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * Creates a new contato with the primary key. Does not add the contato to the database.
@@ -304,6 +310,13 @@ public interface ContatoLocalService
 	@Override
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
+		throws PortalException;
+
+	public Contato updaContato(Contato contato);
+
+	public Contato updaContato(
+			long contatoId, String nome, String telefone, String email,
+			int idade)
 		throws PortalException;
 
 	/**

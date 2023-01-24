@@ -59,6 +59,15 @@ public class ContatoLocalServiceUtil {
 		return getService().addContato(contato);
 	}
 
+	public static Contato addContato(
+			long groupId, String nome, String telefone, String email, int idade,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().addContato(
+			groupId, nome, telefone, email, idade, serviceContext);
+	}
+
 	/**
 	 * Creates a new contato with the primary key. Does not add the contato to the database.
 	 *
@@ -337,6 +346,19 @@ public class ContatoLocalServiceUtil {
 		throws PortalException {
 
 		return getService().getPersistedModel(primaryKeyObj);
+	}
+
+	public static Contato updaContato(Contato contato) {
+		return getService().updaContato(contato);
+	}
+
+	public static Contato updaContato(
+			long contatoId, String nome, String telefone, String email,
+			int idade)
+		throws PortalException {
+
+		return getService().updaContato(
+			contatoId, nome, telefone, email, idade);
 	}
 
 	/**

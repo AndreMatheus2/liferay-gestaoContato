@@ -34,6 +34,16 @@ public class ContatoServiceWrapper
 		_contatoService = contatoService;
 	}
 
+	@Override
+	public com.liferay.andre.contato.model.Contato addContato(
+			long groupId, String nome, String telefone, String email, int idade,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _contatoService.addContato(
+			groupId, nome, telefone, email, idade, serviceContext);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

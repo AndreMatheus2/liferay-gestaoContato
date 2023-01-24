@@ -51,6 +51,16 @@ public class ContatoLocalServiceWrapper
 		return _contatoLocalService.addContato(contato);
 	}
 
+	@Override
+	public com.liferay.andre.contato.model.Contato addContato(
+			long groupId, String nome, String telefone, String email, int idade,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _contatoLocalService.addContato(
+			groupId, nome, telefone, email, idade, serviceContext);
+	}
+
 	/**
 	 * Creates a new contato with the primary key. Does not add the contato to the database.
 	 *
@@ -380,6 +390,23 @@ public class ContatoLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _contatoLocalService.getPersistedModel(primaryKeyObj);
+	}
+
+	@Override
+	public com.liferay.andre.contato.model.Contato updaContato(
+		com.liferay.andre.contato.model.Contato contato) {
+
+		return _contatoLocalService.updaContato(contato);
+	}
+
+	@Override
+	public com.liferay.andre.contato.model.Contato updaContato(
+			long contatoId, String nome, String telefone, String email,
+			int idade)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _contatoLocalService.updaContato(
+			contatoId, nome, telefone, email, idade);
 	}
 
 	/**

@@ -14,6 +14,9 @@
 
 package com.liferay.andre.contato.service;
 
+import com.liferay.andre.contato.model.Contato;
+import com.liferay.portal.kernel.exception.PortalException;
+
 /**
  * Provides the remote service utility for Contato. This utility wraps
  * <code>com.liferay.andre.contato.service.impl.ContatoServiceImpl</code> and is an
@@ -33,13 +36,21 @@ public class ContatoServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to <code>com.liferay.andre.contato.service.impl.ContatoServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
+	public static Contato addContato(
+			long groupId, String nome, String telefone, String email, int idade,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().addContato(
+			groupId, nome, telefone, email, idade, serviceContext);
+	}
 
 	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
 	}
 

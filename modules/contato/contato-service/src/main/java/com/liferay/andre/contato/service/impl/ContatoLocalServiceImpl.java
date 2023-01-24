@@ -36,8 +36,8 @@ import java.util.Date;
 )
 public class ContatoLocalServiceImpl extends ContatoLocalServiceBaseImpl {
 
-	public Contato addContato(long groupId, String nome, String telefone, String email, int idade,
-							  ServiceContext serviceContext) throws PortalException {
+		public Contato addContato(long groupId, String nome, String telefone, String email, int idade,
+								  ServiceContext serviceContext) throws PortalException {
 
 		Group group = GroupLocalServiceUtil.getGroup(groupId);
 		long userId = serviceContext.getUserId();

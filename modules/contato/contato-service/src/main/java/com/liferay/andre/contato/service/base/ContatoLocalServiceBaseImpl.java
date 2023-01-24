@@ -611,5 +611,4 @@ public abstract class ContatoLocalServiceBaseImpl
 	protected com.liferay.asset.kernel.service.AssetTagLocalService
 		assetTagLocalService;
 
-	public abstract Contato updaContato(Contato contato);
 }

@@ -14,9 +14,12 @@
 
 package com.liferay.andre.contato.service.impl;
 
+import com.liferay.andre.contato.model.Contato;
 import com.liferay.andre.contato.service.base.ContatoServiceBaseImpl;
 import com.liferay.portal.aop.AopService;
 
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.service.ServiceContext;
 import org.osgi.service.component.annotations.Component;
 
 /**
@@ -30,4 +33,16 @@ import org.osgi.service.component.annotations.Component;
 	service = AopService.class
 )
 public class ContatoServiceImpl extends ContatoServiceBaseImpl {
+
+	public Contato addContato(long groupId, String nome, String telefone, String email, int idade,
+							  ServiceContext serviceContext) throws PortalException {
+		return contatoLocalService.addContato(groupId, nome, telefone, email, idade, serviceContext);
+
+	}
+
+	public Contato updaContato(long contatoId, String nome, String telefone, String email,
+							   int idade) throws PortalException {
+		return contatoLocalService.updaContato(contatoId, nome, telefone, email, idade);
+	}
+
 }
